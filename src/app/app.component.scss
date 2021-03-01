@@ -1,0 +1,65 @@
+.navbar {
+  border-bottom-width: 3px;
+  border-color: darkgreen;
+  border-bottom-style: solid;
+  padding: 0 0 0 10px;
+}
+
+.navbar-brand {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.navbar-right-top {
+  font-size: 0.7em;
+
+  .label {
+    color: #c2c2c2 !important;
+    font-weight: 500;
+  }
+}
+
+.card {
+  background-color: #292929;
+  border-radius: 6px;
+
+  .card-body {
+    border-radius: 6px;
+  }
+}
+
+.col-card-padding {
+  padding: 5px !important;
+}
+
+.highlight div:not(:last-child) {
+  font-size: 2.5em !important;
+  color: #09baa8;
+}
+
+.navbar-right {
+  max-width: 50px !important;
+}
+
+.navbar-right-container {
+  background-color: #292929;
+  width: 100%;
+  padding: 0;
+  margin-top: 5px;
+
+  :first-child {
+    margin-top: 15px;
+  }
+
+  .active {
+    border-right: 3px darkgreen solid;
+    padding-right: 10px;
+  }
+
+  * {
+    box-sizing: border-box;
+    background-color: #292929;
+    padding: 10px 13px;
+    cursor: pointer;
+  }
+}
