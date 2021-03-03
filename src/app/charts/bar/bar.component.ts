@@ -55,8 +55,9 @@ export class BarComponent implements OnInit, AfterViewInit {
 
     this.svg.append("g")
       .attr("transform", "translate(0," + this.height + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("text")
+      .call(d3.axisBottom(x).tickSize(0).tickSizeOuter(0).tickPadding(10))
+      .call((g: any) => g.select(".domain").remove())
+      .call((g: any) => g.selectAll("text").attr("fill", "#c2c2c2"))
 
     // Add Y axis
     const y = d3.scaleLinear()
@@ -71,9 +72,18 @@ export class BarComponent implements OnInit, AfterViewInit {
       .attr("x", (d: any) => x(d.abbrev.toUpperCase()))
       .attr("y", (d: any) => y(d.percent))
       .attr("width", x.bandwidth())
-      .attr("height", (d: any) => {
-        return this.height - y(d.percent)
-      })
+      .attr("height", (d: any) => this.height - y(d.percent))
       .attr("fill", "#09baa8");
+
+    this.svg.selectAll("bars")
+      .data(data).enter()
+      .append("text")
+      .text((d: any) => d.percent + "%")
+      .attr("x", (d: any) => x(d.abbrev.toUpperCase())! + x.bandwidth() / 2)
+      .attr("y", (d: any) => y(d.percent) - 5)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "10px")
+      .attr("fill", "#c2c2c2")
+      .attr("text-anchor", "middle");
   }
 }

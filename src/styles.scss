@@ -50,3 +50,13 @@ button {
 .card-title {
   border-radius: 6px;
 }
+.grid {
+  stroke: "lightgray";
+  stroke-opacity: 0.3;
+  :first-child {
+    stroke-width: 3;
+  }
+  g:not(:first-child) {
+    stroke-dasharray: 1 5;
+  }
+}

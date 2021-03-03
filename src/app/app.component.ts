@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import FakeData from './interfaces/fake-data';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,7 +37,7 @@ export class AppComponent {
     return data;
   }
 
-  getRandomDataMonthly(): { fullName: string; abbrev: string; color: string; percent: number; days: number; quantity: number; }[] {
+  getRandomDataMonthly(): FakeData[] {
     const color = () => {
       return (Math.random() * 100) > 50 ? "#2ab315" : "#d92754";
     }

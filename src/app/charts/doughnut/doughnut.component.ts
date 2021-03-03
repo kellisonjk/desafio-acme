@@ -62,6 +62,12 @@ export class DoughnutComponent implements OnInit, AfterViewInit {
       .startAngle(-Math.PI / 2)
       .endAngle((-Math.PI / 2) + (Math.PI * (this.percent / 100)));
 
+    const arcLineThreshold = d3.arc()
+      .outerRadius(this.outerRadius + 5)
+      .innerRadius(this.innerRadius - 5)
+      .startAngle((-Math.PI / 2) + (Math.PI * (70 / 100)))
+      .endAngle((-Math.PI / 2) + (Math.PI * (70.5 / 100)));
+
     const arcBG = d3.arc()
       .outerRadius(this.outerRadius)
       .innerRadius(this.innerRadius)
@@ -77,6 +83,11 @@ export class DoughnutComponent implements OnInit, AfterViewInit {
     this.svg.append("path")
       .attr("fill", this.color)
       .attr("d", (d: any) => arcForeground(d));
+    // foreground arc (actual percentage value)
+
+    this.svg.append("path")
+      .attr("fill", "#fff")
+      .attr("d", (d: any) => arcLineThreshold(d));
 
     this.svg.append('text')
       .datum(this.percent)
@@ -87,6 +98,16 @@ export class DoughnutComponent implements OnInit, AfterViewInit {
       .attr("font-size", '30px')
       .attr("dy", 0)
       .attr("dx", 5)
+
+    this.svg.append('text')
+      .datum(70)
+      .text((d: any) => d + "%")
+      .attr("class", 'percentText')
+      .attr("text-anchor", 'middle')
+      .attr("fill", "#fff")
+      .attr("font-size", '12px')
+      .attr("dy", -65)
+      .attr("dx", 65)
 
   }
 

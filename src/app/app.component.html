@@ -63,7 +63,7 @@
       <div class="col col-card-padding" *ngFor="let item of getRandomData(topCards);let i = index">
         <div class="card p-2">
           <div class="card-title p-3">
-            <div class="title-card mb-2">{{item.label}}</div>
+            <div class="title-card mb-4">{{item.label}}</div>
             <app-doughnut [id]="i" [color]="item.data[item.data.length-1].color"
               [percent]="item.data[item.data.length-1].percent" [month]="item.data[item.data.length-1].fullName">
             </app-doughnut>
@@ -95,7 +95,7 @@
 
           </div>
           <div class=" card-body d-flex justify-content-center">
-            <app-area [data]="bottomData" [id]="i"></app-area>
+            <app-area [data]="bottomData.slice(0, bottomData.length - 1)" [id]="i"></app-area>
           </div>
         </div>
       </div>
