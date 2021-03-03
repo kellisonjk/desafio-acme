@@ -17,7 +17,7 @@ export class BarComponent implements OnInit, AfterViewInit {
   private svg: any;
   private margin = 20;
   private width = 200 - (this.margin * 2);
-  private height = 150 - (this.margin * 2);
+  private height = 120 - (this.margin * 2);
 
   colors: any;
 

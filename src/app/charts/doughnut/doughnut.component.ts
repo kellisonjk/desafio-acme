@@ -24,7 +24,7 @@ export class DoughnutComponent implements OnInit, AfterViewInit {
 
   svg: any;
 
-  width = 150;
+  width = 175;
   height = 150;
   angleBase = Math.PI / 2;
   outerRadius = 75;
